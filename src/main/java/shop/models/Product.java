@@ -1,24 +1,30 @@
 package shop.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "product")
 public class Product extends Model {
-
     private static final long serialVersionUID = 2902882763255460365L;
 
+    @Column(name = "title", length = 50)
     private String title;
+
+    @Column (name = "description", length = 1024)
     private String description;
 
+    @Column(name = "count")
     private int count;
 
+    @Column(name = "price")
     private BigDecimal price;
 
+    @ManyToOne
     private ProductCategory productCategory;
-
 
     public Product() {
         super();

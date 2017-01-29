@@ -1,15 +1,22 @@
 package shop.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.GregorianCalendar;
 
 @Entity
 @Table(name = "order")
-public class Order extends Model{
+public class Order extends Model {
     private static final long serialVersionUID = 7857887722480748179L;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
+
+    @Column(name = "date")
     private GregorianCalendar calendar;
 
     public Order() {

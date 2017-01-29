@@ -1,24 +1,23 @@
 package shop.impl;
 
 import org.springframework.stereotype.Repository;
-import shop.dao.UserDao;
-import shop.models.User;
+import shop.dao.RoleDao;
+import shop.models.Role;
 
 import java.util.List;
 
-@Repository(value = "userFileDao")
-public class UserFileDao extends FileAbstractDao<User> implements UserDao {
-
-    public UserFileDao() {
+@Repository(value = "roleFileDao")
+public class RoleFileDao extends FileAbstractDao<Role> implements RoleDao {
+    public RoleFileDao() {
     }
 
     @Override
-    public List<User> getAll() {
+    public List<Role> getAll() {
         return null;
     }
 
     @Override
-    public User getById(Long id) {
+    public Role getById(Long id) {
         return null;
     }
 

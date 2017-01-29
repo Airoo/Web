@@ -13,7 +13,5 @@ public interface ItemDao <T extends Model> {
 
     public void update(T model);
 
-    public void remove(Long id);
-
     public  void remove(T model);
 }
