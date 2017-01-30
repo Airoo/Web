@@ -5,5 +5,5 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="locale" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <t:template>
-    <p>Home page</p>
+    <p>TECHNICAL ERROR</p>
 </t:template>
