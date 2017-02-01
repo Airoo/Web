@@ -79,10 +79,11 @@
                              authentication-failure-url="/user/login.html?error=invalidLoginPassword"/>
         <security:intercept-url pattern="/product/list.html" access="isAuthenticated()"/>
         <security:logout logout-url="/logout.htm"/>
-        <security:remember-me user-service-ref="userAuthorService" key="shop_key"/>
+        <security:remember-me user-service-ref="userService" key="shop_key"/>
     </security:http>
+
     <security:authentication-manager>
-        <security:authentication-provider user-service-ref="userAuthorityService">
+        <security:authentication-provider user-service-ref="userService">
             <security:password-encoder ref="passwordHelper"/>
         </security:authentication-provider>
     </security:authentication-manager>

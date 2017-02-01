@@ -14,6 +14,8 @@
         <div>
             <label>Password:</label>
             <input type="password" name="password" value=""/>
+        </div>
+        <div>
             <input type="submit" name="login" value="Log in"/>
         </div>
     </form>

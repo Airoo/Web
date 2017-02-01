@@ -26,4 +26,9 @@ public class UserFileDao extends FileAbstractDao<User> implements UserDao {
     public String getDatasourceName() {
         return null;
     }
+
+    @Override
+    public User getByUsername(String username) {
+        return null;
+    }
 }
