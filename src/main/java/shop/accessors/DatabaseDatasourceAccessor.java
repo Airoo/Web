@@ -1,6 +1,6 @@
 package shop.accessors;
 
-import javax.sql.DataSource;
+import javax.activation.DataSource;
 
 public abstract class DatabaseDatasourceAccessor {
     public DataSource load(){
