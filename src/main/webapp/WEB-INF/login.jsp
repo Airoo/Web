@@ -5,15 +5,16 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="locale" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <t:template>
-    <form action="/auth.htm" method="post">
+    <form action="<c:url value="/auth.htm"/>" method="post"/>
         <input type="hidden" name="_spring_security_remember_me" value="true">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
         <div>
             <label>Username:</label>
             <input type="text" name="username" value="" placeholder="Your name"/>
         </div>
         <div>
             <label>Password:</label>
-            <input type="password" name="password" value=""/>
+            <input type="password" name="password" value="" placeholder="Your password"/>
         </div>
         <div>
             <input type="submit" name="login" value="Log in"/>

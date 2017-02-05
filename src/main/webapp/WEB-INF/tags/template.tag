@@ -5,7 +5,7 @@
 <html>
 <head>
     <link rel="stylesheet" href='<c:url value="/css/main.css"/>'>
-    <script src='<c:url value="/js/main.js"/>'/>
+    <script src="<c:url value="/js/main.js"/>"></script>
     <title>Title</title>
 </head>
 <body>

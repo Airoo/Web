@@ -12,23 +12,28 @@ import shop.models.User;
 
 import java.util.List;
 
-@Service (value = "userService")
+@Service(value = "userService")
 public class UserService implements UserDetailsService {
     @Autowired()
-    @Qualifier(value = "userFileDao")
+    @Qualifier(value = "userDatabaseDao")
     public UserDao userDao;
-    public UserService(){}
+
+    public UserService() {
+    }
 
     @Transactional
-    public List<User> getAll(){
+    public List<User> getAll() {
         return userDao.getAll();
     }
 
+    @Transactional
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>> USERNAME: " + username);
         User user = userDao.getByUsername(username);
-        if (user == null){
-            throw new UsernameNotFoundException("User with username: "+username+" not found!");
+        System.err.println(">>>>>>>>>>>>>>>>>>>>>>>> USERNAME FROM DB: " + user.toString());
+        if (user == null) {
+            throw new UsernameNotFoundException("User with username: " + username + " not found!");
         }
         return user;
     }

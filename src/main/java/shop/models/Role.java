@@ -1,9 +1,6 @@
 package shop.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
@@ -15,8 +12,8 @@ public class Role extends Model{
     private static final long serialVersionUID = 403190361899202490L;
 
     @NotNull
-    @Min(value = 4)
-    @Column(name = "title", length = 25)
+    @Enumerated(EnumType.STRING)
+    @Column(name = "title", length = 25, insertable = false, updatable = false)
     private RoleList title;
 
     @Column(name="description", length = 255)

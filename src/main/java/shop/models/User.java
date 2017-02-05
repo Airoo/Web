@@ -93,4 +93,17 @@ public class User extends Model implements UserDetails {
         }
         return result;
     }
+
+    @Override
+    public String toString() {
+        String roles = "";
+        for (Role role : getRoles()) {
+            roles += role.getTitle().name() + ", ";
+        }
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", roles=" + roles +
+                '}';
+    }
 }

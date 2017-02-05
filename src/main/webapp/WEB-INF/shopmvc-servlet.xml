@@ -4,15 +4,15 @@
        xmlns:security="http://www.springframework.org/schema/security"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop    http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/context    http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/jee    http://www.springframework.org/schema/jee/spring-jee.xsd
         http://www.springframework.org/schema/lang    http://www.springframework.org/schema/lang/spring-lang.xsd
-        http://www.springframework.org/schema/tx    http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+        http://www.springframework.org/schema/tx    http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
         http://www.springframework.org/schema/util    http://www.springframework.org/schema/util/spring-util.xsd
-        http://www.springframework.org/schema/mvc    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
-        http://www.springframework.org/schema/security    http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+        http://www.springframework.org/schema/mvc    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/security    http://www.springframework.org/schema/security/spring-security-4.0.xsd">
     <mvc:annotation-driven/>
     <context:annotation-config/>
     <context:component-scan base-package="shop"/>
@@ -63,13 +63,13 @@
     </bean>
 
     <context:property-placeholder location="classpath:application.properties"/>
-
+    <!-- Access denied for this-->
     <security:http pattern="/css/**" security="none"/>
     <security:http pattern="/images/**" security="none"/>
     <security:http pattern="/js/**" security="none"/>
-    <security:http pattern="/user/**" security="none"/>
 
-    <security:http auto-config="true" use-expressions="true" access-denied-page="/user/access_denied.html">
+    <security:http auto-config="true" use-expressions="true">
+        <security:access-denied-handler error-page="/user/access_denied.html"/>
         <security:form-login login-page="/user/login.html"
                              login-processing-url="/auth.htm"
                              username-parameter="username"
