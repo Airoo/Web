@@ -9,7 +9,12 @@
     <title>Title</title>
 </head>
 <body>
-    <div class="" style="height: 100px; background-color: cadetblue"></div>
-    <jsp:doBody/>
+<div class="" style="height: 100px; background-color: cadetblue">
+    <form action="<c:url value="/logout.htm"/>" method="post">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+        <input type="submit" name="submit" value="Logout"/>
+    </form>
+</div>
+<jsp:doBody/>
 </body>
 </html>
