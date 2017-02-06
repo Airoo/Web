@@ -23,4 +23,29 @@ public class ProductService {
     public List<Product> getAll(){
         return productDao.getAll();
     }
+
+    @Transactional
+    public void add(Product product){
+        productDao.add(product);
+    }
+
+    @Transactional
+    public void update(Product product){
+        productDao.update(product);
+    }
+
+    @Transactional
+    public void remove(Product product){
+        productDao.remove(product);
+    }
+
+    public Product getProductById(Long id){
+        List<Product> products = productDao.getAll();
+        for (Product product : products) {
+            if(id.equals(product.getId())){
+                return  product;
+            }
+        }
+        return null;
+    }
 }
